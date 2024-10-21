@@ -34,7 +34,6 @@ int main()
     }
 
     // 回文の上半分、下半分の作成
-    ll lower = 0;
     ll upper = 1;
     rep (i, 1, (digit+1)/2) // round
         upper *= 10;
