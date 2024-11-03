@@ -37,11 +37,33 @@ int main()
         )()(
         ))((
     */
-    while (next_permutation(v.begin(), v.end())) {
+    set<string> st;
+    do {
+        string tmp;
         for (auto c : v) {
-            cout << c;
+            // cout << c;
+            tmp += c;
         }
-        cout << endl;
+        // cout << endl;
+        st.insert(tmp);
+    } while (next_permutation(v.begin(), v.end()));
+
+    for (auto s : st) {
+        int open_cnt = 0;
+        int close_cnt = 0;
+        bool flg = true;
+        rep(i, 0, s.size()) {
+            if (s[i] == '(')
+                open_cnt++;
+            else
+                close_cnt++;
+            if (open_cnt < close_cnt) {
+                flg = false;
+                break;
+            }
+        }
+        if (flg)
+            cout << s << endl;
     }
 
     return 0;
